@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechNova Solutions | Technology Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #041b3c;
+    --navy-2: #102b50;
+    --blue: #005faf;
+    --blue-light: #459afe;
+    --blue-soft: #d4e3ff;
+    --blue-tint: #e8edff;
+    --blue-pale: #f1f3ff;
+    --blue-accent: #a5c8ff;
+    --muted: #74777f;
+    --text: #44474e;
+    --border: rgba(196, 198, 207, 0.3);
+    --white: #ffffff;
+    --radius-lg: 16px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    color: var(--navy);
+    background: var(--white);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img, svg { display: block; max-width: 100%; }
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .section-lead {
+    font-size: 16px;
+    color: var(--text);
+    max-width: 640px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 26px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    font-family: inherit;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary {
+    background: var(--blue);
+    color: var(--white);
+    box-shadow: 0 8px 20px rgba(0, 95, 175, 0.25);
+  }
+  .btn-primary:hover { background: #004c8c; }
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+  .btn-outline:hover { background: rgba(255, 255, 255, 0.08); }
+  .btn-light {
+    background: var(--white);
+    color: var(--navy);
+  }
+  .btn-light:hover { background: var(--blue-tint); }
+  .btn:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--blue);
+  }
+  .link-arrow::after { content: "\2192"; transition: transform .15s ease; }
+  .link-arrow:hover::after { transform: translateX(3px); }
+
+  .material-icon {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* 1. HERO */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 60%, #1a4971 100%);
+    color: var(--white);
+    padding: 96px 0 104px;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(69, 154, 254, 0.22), transparent 45%),
+                radial-gradient(circle at 10% 90%, rgba(0, 95, 175, 0.3), transparent 50%);
+    pointer-events: none;
+  }
+  .hero-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .hero .eyebrow { color: var(--blue-accent); }
+  .hero h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.12;
+    margin-bottom: 20px;
+  }
+  .hero p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.82);
+    margin-bottom: 32px;
+    max-width: 520px;
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 36px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: var(--blue-soft);
+  }
+
+  /* Hero mockup */
+  .mockup {
+    position: relative;
+    padding: 24px 0;
+  }
+  .mockup-backing {
+    position: absolute;
+    inset: 10px -12px -10px 12px;
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .laptop {
+    position: relative;
+    background: #0b2445;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+  }
+  .laptop-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: #0e2d55;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 12px;
+    font-family: 'Liberation Mono', Menlo, Consolas, monospace;
+    color: var(--blue-accent);
+  }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot-r { background: #ff6b6b; }
+  .dot-y { background: #ffd166; }
+  .dot-g { background: #06d6a0; }
+  .laptop-top .url { margin-left: auto; opacity: .7; }
+  .dashboard { padding: 20px; display: grid; gap: 14px; }
+  .metric-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .metric {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-sm);
+    padding: 12px;
+  }
+  .metric small { display: block; font-size: 11px; color: rgba(255,255,255,.6); }
+  .metric strong { font-size: 18px; color: var(--white); }
+  .chart-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-sm);
+    padding: 14px;
+  }
+  .chart-card header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: rgba(255,255,255,.75);
+    margin-bottom: 10px;
+  }
+  .chart-card svg { width: 100%; height: 120px; }
+  .status-list { display: grid; gap: 8px; }
+  .status-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: rgba(255,255,255,.8);
+    padding: 8px 10px;
+    background: rgba(255,255,255,.03);
+    border-radius: 6px;
+  }
+  .status-item span.ok { color: #06d6a0; font-weight: 600; }
+  .float-card {
+    position: absolute;
+    background: var(--white);
+    color: var(--navy);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.25);
+    font-size: 12px;
+    min-width: 170px;
+  }
+  .float-card .label { color: var(--muted); font-size: 11px; }
+  .float-card .value { font-size: 16px; font-weight: 700; color: var(--navy); }
+  .float-card .status { color: #0a8f5e; font-weight: 600; font-size: 12px; }
+  .float-1 { top: -18px; right: -18px; }
+  .float-2 { bottom: -22px; left: -22px; }
+
+  /* 2. TRUST & STATISTICS */
+  .stats {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 56px 0;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .stat {
+    text-align: center;
+    padding: 8px 24px;
+    border-left: 1px solid var(--border);
+  }
+  .stat:first-child { border-left: none; }
+  .stat-num {
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--blue);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .stat-label { font-size: 14px; color: var(--muted); font-weight: 500; }
+
+  /* 3. ABOUT US PREVIEW */
+  .about { padding: 96px 0; background: var(--white); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .about .section-lead { margin-bottom: 32px; }
+  .about-list { display: grid; gap: 22px; margin-bottom: 36px; }
+  .about-item h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .about-item p { font-size: 14px; color: var(--text); }
+  .about-visual {
+    position: relative;
+    background: var(--blue-pale);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: 0 20px 40px rgba(16, 43, 80, 0.06);
+  }
+  .blueprint {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--blue-soft);
+    padding: 20px;
+  }
+  .blueprint-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .blueprint-head strong { font-size: 14px; color: var(--navy); }
+  .badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    background: #e3f7ef;
+    color: #0a8f5e;
+  }
+  .code-block {
+    font-family: 'Liberation Mono', Menlo, Consolas, monospace;
+    font-size: 12px;
+    background: var(--navy);
+    color: var(--blue-accent);
+    padding: 16px;
+    border-radius: var(--radius-sm);
+    line-height: 1.7;
+    overflow-x: auto;
+  }
+  .code-block .kw { color: var(--blue-light); }
+  .code-block .muted { color: #7b93be; }
+  .node-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--text);
+  }
+  .node-row .pulse {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #06d6a0;
+    box-shadow: 0 0 0 4px rgba(6, 214, 160, 0.18);
+  }
+  .quality-callout {
+    margin-top: 18px;
+    background: var(--navy-2);
+    color: var(--white);
+    border-radius: var(--radius-md);
+    padding: 18px 20px;
+  }
+  .quality-callout h4 { font-size: 15px; margin-bottom: 4px; }
+  .quality-callout p { font-size: 12px; color: rgba(255,255,255,.75); }
+
+  /* 4. SERVICES */
+  .services {
+    background: var(--blue-pale);
+    padding: 96px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .services-head { text-align: center; margin-bottom: 56px; }
+  .services-head .section-lead { margin: 0 auto; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .services-grid .bottom {
+    grid-column: span 1;
+  }
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(16, 43, 80, 0.1);
+    border-color: var(--blue-soft);
+  }
+  .service-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-md);
+    background: var(--blue-tint);
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+  }
+  .service-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .service-card p {
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 18px;
+    flex: 1;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: var(--blue-tint);
+    color: var(--blue);
+  }
+  .service-card .link-arrow { margin-top: auto; }
+
+  /* 5. WHY CHOOSE US (dark navy) */
+  .why {
+    background: var(--navy-2);
+    color: var(--white);
+    padding: 96px 0;
+  }
+  .why .eyebrow { color: var(--blue-accent); }
+  .why .section-title { color: var(--white); }
+  .why-head { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; margin-bottom: 56px; }
+  .why-head .section-lead { color: rgba(255,255,255,.78); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .why-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    padding: 28px 24px;
+  }
+  .why-item .num {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--blue-accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 14px;
+  }
+  .why-item h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .why-item p { font-size: 14px; color: rgba(255,255,255,.75); }
+  .why-item.wide {
+    grid-column: span 3;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    background: linear-gradient(120deg, rgba(69,154,254,.18), rgba(255,255,255,.04));
+  }
+  .why-item.wide p { max-width: 720px; }
+
+  /* 6. TESTIMONIALS */
+  .testimonials { padding: 96px 0; background: var(--white); }
+  .testimonials-head { text-align: center; margin-bottom: 56px; }
+  .testimonials-head .section-lead { margin: 0 auto; }
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .testi-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    box-shadow: 0 10px 24px rgba(16, 43, 80, 0.05);
+    display: flex;
+    flex-direction: column;
+  }
+  .stars { color: #f5b301; font-size: 16px; letter-spacing: 3px; margin-bottom: 18px; }
+  .testi-card blockquote {
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 24px;
+    flex: 1;
+  }
+  .author { display: flex; align-items: center; gap: 12px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .author strong { display: block; font-size: 14px; color: var(--navy); }
+  .author span { font-size: 12px; color: var(--muted); }
+
+  /* 7. DEVELOPMENT PROCESS */
+  .process { padding: 96px 0; background: var(--blue-pale); border-top: 1px solid var(--border); }
+  .process-head { text-align: center; margin-bottom: 64px; }
+  .process-head .section-lead { margin: 0 auto; }
+  .track {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .track::before {
+    content: "";
+    position: absolute;
+    top: 28px;
+    left: 12.5%;
+    right: 12.5%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue-soft), var(--blue), var(--blue-soft));
+    z-index: 0;
+  }
+  .step { position: relative; z-index: 1; text-align: center; padding: 0 12px; }
+  .step-num {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 22px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--blue);
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0 8px 18px rgba(0, 95, 175, 0.15);
+  }
+  .step h3 { font-size: 18px; font-weight: 600; color: var(--navy); margin-bottom: 10px; }
+  .step p { font-size: 14px; color: var(--text); }
+
+  /* 8. CTA BANNER */
+  .cta {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(120deg, var(--blue) 0%, var(--navy-2) 100%);
+    color: var(--white);
+    padding: 80px 0;
+    text-align: center;
+  }
+  .cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 15% 30%, rgba(255,255,255,.12), transparent 40%),
+                radial-gradient(circle at 85% 70%, rgba(69,154,254,.25), transparent 45%);
+    pointer-events: none;
+  }
+  .cta-inner { position: relative; }
+  .cta h2 { font-size: 36px; font-weight: 700; margin-bottom: 28px; line-height: 1.2; }
+
+  /* 9. CONTACT */
+  .contact { padding: 96px 0; background: var(--white); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .contact .section-lead { margin-bottom: 36px; }
+  .info-list { display: grid; gap: 14px; }
+  .info-card {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: var(--blue-pale);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 18px 20px;
+  }
+  .info-icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: var(--radius-sm);
+    background: var(--white);
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--blue-soft);
+  }
+  .info-card small { display: block; font-size: 12px; color: var(--muted); font-weight: 500; }
+  .info-card strong { font-size: 15px; color: var(--navy); font-weight: 600; }
+  .response-note {
+    margin-top: 18px;
+    font-size: 13px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .response-note::before {
+    content: "";
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #06d6a0;
+  }
+
+  .form-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    box-shadow: 0 24px 48px rgba(16, 43, 80, 0.08);
+  }
+  .form-card h3 { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .form-card > p { font-size: 14px; color: var(--muted); margin-bottom: 26px; }
+  .field { margin-bottom: 18px; }
+  .field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .field label .req { color: var(--blue); }
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--navy);
+    padding: 13px 16px;
+    border: 1px solid #c4c6cf;
+    border-radius: var(--radius-sm);
+    background: var(--white);
+    outline: none;
+    transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  .field select { appearance: auto; }
+  .field textarea { resize: vertical; min-height: 110px; font-family: inherit; }
+  .field input::placeholder,
+  .field textarea::placeholder { color: #9aa0ad; }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 4px rgba(0, 95, 175, 0.12);
+  }
+  .field input:invalid:not(:placeholder-shown) { border-color: #d64545; }
+  .submit-btn { width: 100%; justify-content: center; margin-top: 8px; }
+  .form-status {
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    display: none;
+  }
+  .form-status.show { display: block; }
+  .form-status.success { background: #e3f7ef; color: #0a6b47; }
+  .form-status.error { background: #fde8e8; color: #a12626; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .services-grid, .testi-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-item.wide { grid-column: span 2; }
+    .track { grid-template-columns: repeat(2, 1fr); row-gap: 48px; }
+    .track::before { display: none; }
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid, .about-grid, .contact-grid, .why-head { grid-template-columns: 1fr; gap: 44px; }
+    .hero h1 { font-size: 40px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); row-gap: 32px; }
+    .stat:nth-child(3) { border-left: none; }
+    .float-1 { right: 8px; top: -14px; }
+    .float-2 { left: 8px; bottom: -18px; }
+  }
+
+  @media (max-width: 640px) {
+    .container { padding: 0 20px; }
+    .hero { padding: 64px 0 72px; }
+    .hero h1 { font-size: 32px; }
+    .section-title, .cta h2 { font-size: 28px; }
+    .about, .services, .why, .testimonials, .process, .contact { padding: 68px 0; }
+    .services-grid, .testi-grid, .why-grid { grid-template-columns: 1fr; }
+    .why-item.wide { grid-column: span 1; flex-direction: column; align-items: flex-start; }
+    .track { grid-template-columns: 1fr; }
+    .metric-row { grid-template-columns: 1fr; }
+    .float-card { min-width: 150px; font-size: 11px; }
+    .form-card { padding: 26px 22px; }
+    .stat-num { font-size: 32px; }
+    .btn { width: 100%; justify-content: center; }
+    .hero-actions { flex-direction: column; }
+    .cta { padding: 64px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 2. HERO SECTION -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Your Partner in Digital Innovation</span>
+      <h1>Building Digital Solutions for a Smarter Future.</h1>
+      <p>At TechNova Solutions, we help businesses turn their ideas into reliable digital products. From websites and mobile applications to cloud solutions and custom software, we provide the technology and expertise to help your business grow.</p>
+      <div class="hero-actions">
+        <a href="#services" class="btn btn-primary">Explore Our Services</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+      <div class="chips">
+        <span class="chip">Customer-Focused</span>
+        <span class="chip">Modern Tech Stack</span>
+        <span class="chip">Reliable Execution</span>
+      </div>
+    </div>
+
+    <div class="mockup">
+      <div class="mockup-backing"></div>
+      <div class="laptop">
+        <div class="laptop-top">
+          <span class="dot dot-r"></span>
+          <span class="dot dot-y"></span>
+          <span class="dot dot-g"></span>
+          <span class="url">cloud.technova.internal</span>
+        </div>
+        <div class="dashboard">
+          <div class="metric-row">
+            <div class="metric"><small>Application Telemetry</small><strong>99.98%</strong></div>
+            <div class="metric"><small>API Request Latency</small><strong>Optimal</strong></div>
+            <div class="metric"><small>Container Fleet</small><strong>Healthy</strong></div>
+          </div>
+          <div class="chart-card">
+            <header><span>Metrics Chart</span><span>Last 24h</span></header>
+            <svg viewBox="0 0 400 120" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#459afe" stop-opacity="0.45"/>
+                  <stop offset="100%" stop-color="#459afe" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path d="M0,90 L40,78 L80,84 L120,58 L160,66 L200,40 L240,52 L280,30 L320,38 L360,22 L400,28 L400,120 L0,120 Z" fill="url(#chartFill)"/>
+              <polyline points="0,90 40,78 80,84 120,58 160,66 200,40 240,52 280,30 320,38 360,22 400,28" fill="none" stroke="#459afe" stroke-width="2.5" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="status-list">
+            <div class="status-item"><span>Automated CI/CD</span><span>Build passed · 0 vulnerabilities</span></div>
+            <div class="status-item"><span>Synchronized Cloud Node</span><span class="ok">Active</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="float-card float-1">
+        <div class="label">Production</div>
+        <div class="value">99.98% Available</div>
+      </div>
+      <div class="float-card float-2">
+        <div class="label">Enterprise Ready</div>
+        <div class="status">Customer-Focused</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. TRUST AND STATISTICS -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-num">120+</div>
+        <div class="stat-label">Projects Completed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">95+</div>
+        <div class="stat-label">Happy Clients</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Core IT Services</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. ABOUT US PREVIEW -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div>
+      <span class="eyebrow">About TechNova</span>
+      <h2 class="section-title">Technology That Moves Your Business Forward.</h2>
+      <p class="section-lead">Technology should make running a business easier, not more complicated. At TechNova Solutions, we work with businesses to understand their challenges and create technology solutions that make a real difference. Whether you need a new website, mobile application, custom software, or cloud infrastructure, our team is here to help.</p>
+      <div class="about-list" style="margin-top:32px;">
+        <div class="about-item">
+          <h3>Customer-Focused Solutions</h3>
+          <p>Solutions engineered directly around your practical workflow constraints.</p>
+        </div>
+        <div class="about-item">
+          <h3>Quality-Driven Development</h3>
+          <p>Uncompromising test coverage, security vetting, and code craftsmanship.</p>
+        </div>
+        <div class="about-item">
+          <h3>Long-Term Technology Partnerships</h3>
+          <p>We remain by your side through post-launch scaling and iteration cycles.</p>
+        </div>
+      </div>
+      <a href="#services" class="link-arrow">Discover Our Story</a>
+    </div>
+
+    <div class="about-visual">
+      <div class="blueprint">
+        <div class="blueprint-head">
+          <strong>Architectural Blueprint</strong>
+          <span class="badge">v2.4 Live</span>
+        </div>
+        <div class="code-block">
+          <span class="kw">const</span> platform = {<br>
+          &nbsp;&nbsp;<span class="kw">new</span> Engineered: <span class="muted">"Longevity"</span>,<br>
+          &nbsp;&nbsp;tests: <span class="muted">"automated"</span>,<br>
+          &nbsp;&nbsp;scale: <span class="muted">"on-demand"</span><br>
+          };
+        </div>
+        <div class="node-row">
+          <span class="pulse"></span>
+          <span><strong>Synchronized Cloud Node</strong>, Active</span>
+        </div>
+      </div>
+      <div class="quality-callout">
+        <h4>Engineered for Longevity</h4>
+        <p>Rigorous code standards, automated testing, and scalable architecture.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-head">
+      <span class="eyebrow">What We Do</span>
+      <h2 class="section-title">Technology Services Designed Around Your Business</h2>
+      <p class="section-lead">From building your digital presence to modernizing your business infrastructure, we provide the technology services you need to move forward.</p>
+    </div>
+
+    <div class="services-grid">
+      <!-- Card 1 -->
+      <article class="service-card">
+        <div class="service-icon">
+          <svg class="material-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>Web Development</h3>
+        <p>We build modern, responsive, and user-friendly websites that represent your brand and provide a seamless experience across all devices.</p>
+        <div class="tags"><span class="tag">Cross-Platform</span></div>
+        <a href="#contact" class="link-arrow">Learn More</a>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="service-card">
+        <div class="service-icon">
+          <svg class="material-icon" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg>
+        </div>
+        <h3>Mobile App Development</h3>
+        <p>We develop powerful Android and iOS applications that help businesses connect with customers and deliver better digital experiences.</p>
+        <div class="tags"><span class="tag">iOS</span><span class="tag">APK</span></div>
+        <a href="#contact" class="link-arrow">Learn More</a>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="service-card">
+        <div class="service-icon">
+          <svg class="material-icon" viewBox="0 0 24 24"><path d="M7 18a5 5 0 0 1-.6-9.97A6.5 6.5 0 0 1 19 9.5a4 4 0 0 1-1 7.5H7z"/></svg>
+        </div>
+        <h3>Cloud Solutions</h3>
+        <p>We help businesses adopt cloud technology through migration, deployment, infrastructure setup, and ongoing management.</p>
+        <div class="tags"><span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">GCP</span></div>
+        <a href="#contact" class="link-arrow">Learn More</a>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="service-card">
+        <div class="service-icon">
+          <svg class="material-icon" viewBox="0 0 24 24"><polyline points="8 7 3 12 8 17"/><polyline points="16 7 21 12 16 17"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
+        </div>
+        <h3>Software Development</h3>
+        <p>We create custom software applications designed around your business processes, operational needs, and long-term goals.</p>
+        <div class="tags"><span class="tag">Custom Builds</span></div>
+        <a href="#contact" class="link-arrow">Learn More</a>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="service-card">
+        <div class="service-icon">
+          <svg class="material-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </div>
+        <h3>IT Consulting</h3>
+        <p>We provide practical technology guidance to help businesses make better IT decisions and plan their digital transformation with comprehensive architectural clarity.</p>
+        <div class="tags"><span class="tag">Infrastructure Health Auditing</span></div>
+        <a href="#contact" class="link-arrow">Learn More</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 6. WHY CHOOSE US (DARK NAVY) -->
+<section class="why">
+  <div class="container">
+    <div class="why-head">
+      <div>
+        <span class="eyebrow">The TechNova Advantage</span>
+        <h2 class="section-title">Why Businesses Choose TechNova Solutions</h2>
+      </div>
+      <p class="section-lead">We believe great technology starts with understanding people and their business challenges. Our approach focuses on delivering practical solutions and building lasting relationships.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="num">01</div>
+        <h3>Customer-Focused Approach</h3>
+        <p>We take time to understand your business goals before recommending solutions.</p>
+      </div>
+      <div class="why-item">
+        <div class="num">02</div>
+        <h3>Quality Work</h3>
+        <p>We focus on delivering reliable, maintainable, and user-friendly solutions.</p>
+      </div>
+      <div class="why-item">
+        <div class="num">03</div>
+        <h3>Modern Technology</h3>
+        <p>We use relevant technologies and development practices to create future-ready products.</p>
+      </div>
+      <div class="why-item">
+        <div class="num">04</div>
+        <h3>Transparent Communication</h3>
+        <p>We keep you informed throughout the project and value your feedback.</p>
+      </div>
+      <div class="why-item wide">
+        <div>
+          <div class="num">05</div>
+          <h3>Long-Term Support</h3>
+        </div>
+        <p>We believe in building lasting partnerships and supporting your business as it grows. Our commitment extends far beyond the production launch date.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. CUSTOMER TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials-head">
+      <span class="eyebrow">Client Voices</span>
+      <h2 class="section-title">What Our Clients Say</h2>
+      <p class="section-lead">Hear what our customers have to say.</p>
+    </div>
+
+    <div class="testi-grid">
+      <article class="testi-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"TechNova migrated our entire infrastructure without a second of operational disruption. Their proactive communication kept our executive board fully informed at every stage."</blockquote>
+        <div class="author">
+          <div class="avatar">MK</div>
+          <div><strong>Marcus Keller</strong><span>VP of Engineering, Apex Logistics</span></div>
+        </div>
+      </article>
+
+      <article class="testi-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"The platform they developed exceeded our product roadmap benchmarks. Their engineering team treats our code repository with real care and craftsmanship."</blockquote>
+        <div class="author">
+          <div class="avatar">SL</div>
+          <div><strong>Sarah Lin</strong><span>Product Director, Omnichannel Pay</span></div>
+        </div>
+      </article>
+
+      <article class="testi-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Their architectural foresight combined with fast turnaround is rare. TechNova delivered our enterprise portal ahead of schedule with zero compromise on quality."</blockquote>
+        <div class="author">
+          <div class="avatar">DR</div>
+          <div><strong>David Rivera</strong><span>Chief Information Officer, Novus Health</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 8. DEVELOPMENT PROCESS -->
+<section class="process">
+  <div class="container">
+    <div class="process-head">
+      <span class="eyebrow">Execution Roadmap</span>
+      <h2 class="section-title">How We Bring Your Ideas to Life</h2>
+      <p class="section-lead">A proven, transparent step-by-step methodology from initial discovery to continuous post-launch success.</p>
+    </div>
+
+    <div class="track">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Understand</h3>
+        <p>We learn about your business, requirements, and project goals to formulate a solid technical blueprint.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Prepare</h3>
+        <p>We prepare the solution structure, user experience, and comprehensive engineering architecture plan.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Build &amp; Test</h3>
+        <p>We build your solution and test its functionality, performance, and security across simulated environments.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>Launch</h3>
+        <p>We launch the solution and provide support based on your requirements to guarantee zero downtime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. CTA BANNER -->
+<section class="cta">
+  <div class="container cta-inner">
+    <h2>Ready to help you take the next step.</h2>
+    <a href="#contact" class="btn btn-light">Start Your Project</a>
+  </div>
+</section>
+
+<!-- 10. CONTACT -->
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <span class="eyebrow">Get in Touch</span>
+      <h2 class="section-title">Have a Project in Mind?</h2>
+      <p class="section-lead">Looking for a technology partner? Tell us what you need, and our team will be happy to discuss how we can help.</p>
+
+      <div class="info-list">
+        <div class="info-card">
+          <div class="info-icon">
+            <svg class="material-icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          </div>
+          <div>
+            <small>Email Inquiries</small>
+            <strong>info@technovasolutions.com</strong>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">
+            <svg class="material-icon" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+          </div>
+          <div>
+            <small>Direct Phone</small>
+            <strong>+91 XXXXX XXXXX</strong>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">
+            <svg class="material-icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          </div>
+          <div>
+            <small>Headquarters</small>
+            <strong>TechNova Plaza, Innovation District</strong>
+          </div>
+        </div>
+      </div>
+      <div class="response-note">Average response time: Within 24 business hours</div>
+    </div>
+
+    <div class="form-card">
+      <h3>Send an Enquiry</h3>
+      <p>Tell us a little about yourself and we will get back to you.</p>
+
+      <form id="enquiryForm" novalidate>
+        <div class="field">
+          <label for="name">Full Name <span class="req">*</span></label>
+          <input type="text" id="name" name="name" placeholder="John Doe" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="email">Email Address <span class="req">*</span></label>
+          <input type="email" id="email" name="email" placeholder="john@enterprise.com" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="company">Company Name</label>
+          <input type="text" id="company" name="company" placeholder="Acme Global Inc." autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="service">Service Interested In</label>
+          <select id="service" name="service">
+            <option value="">Select a service</option>
+            <option value="Web Development">Web Development</option>
+            <option value="Mobile App Development">Mobile App Development</option>
+            <option value="Cloud Solutions">Cloud Solutions</option>
+            <option value="Software Development">Software Development</option>
+            <option value="IT Consulting">IT Consulting</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">Message <span class="req">*</span></label>
+          <textarea id="message" name="message" rows="4" placeholder="Describe your project, timeline, and goals..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary submit-btn" id="submitBtn">Send Enquiry</button>
+      </form>
+
+      <div class="form-status" id="formStatus" role="status"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Deployed Google Apps Script Web App URL
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyP8HsLaYlK73nA5VhjeKTzL0N8jIbSH872n_1AgL8q_wTa4K-kfuNFqFHYYFmzbrHH/exec";
+
+  const form = document.getElementById("enquiryForm");
+  const submitBtn = document.getElementById("submitBtn");
+  const statusBox = document.getElementById("formStatus");
+
+  function showStatus(type, message) {
+    statusBox.className = "form-status show " + type;
+    statusBox.textContent = message;
+  }
+
+  function showSuccess() {
+    showStatus("success", "Thank you! Your enquiry has been sent. We will be in touch within 24 business hours.");
+    form.reset();
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Send Enquiry";
+  }
+
+  function showError() {
+    showStatus("error", "Something went wrong. Please try again in a moment.");
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Send Enquiry";
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const company = document.getElementById("company").value.trim();
+    const service = document.getElementById("service").value;
+    const message = document.getElementById("message").value.trim();
+
+    if (!name || !email || !message) {
+      showStatus("error", "Please enter your name, email address, and message.");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    statusBox.className = "form-status";
+
+    const url = SCRIPT_URL + "?" + new URLSearchParams({
+      name: name,
+      email: email,
+      phone: phone,
+      company: company,
+      service: service,
+      message: message
+    });
+
+    fetch(url, { method: "GET", mode: "no-cors" })
+      .then(() => showSuccess())
+      .catch(() => showError());
+  });
+</script>
+
+</body>
+</html>
